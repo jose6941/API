@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
+const slug = require('slug');
 
 const { Schema } = mongoose;
 
 const portifolioSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+    },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+        default: function(){return slug(this.title)}
     },
     description: {
         type: String,
@@ -17,4 +25,4 @@ const portifolioSchema = new Schema({
     }
 });
 
-mongoose.Model('portifolio', portifolioSchema);
+module.exports = mongoose.model('portifolio', portifolioSchema);

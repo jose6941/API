@@ -7,7 +7,7 @@ const teste = require('./teste')
 router.get('/', (req,res) => {
     res.json({
         success: false,
-        message: 'Please, do not call /api, it is for our sever'
+        message: 'Please, do not call /api, it is for our server'
     });
 });
 
